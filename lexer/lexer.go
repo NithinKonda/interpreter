@@ -1,7 +1,7 @@
 package lexer
 
 import {
-	"./token"
+	"writing/token"
 }
 type Lexer struct {
 	input        string
