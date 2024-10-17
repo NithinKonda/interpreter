@@ -29,4 +29,8 @@ This project is a simple interpreter for a programming language called **Monkey*
 2. Build the Project:
 
    ```bash
-   go build  
+   go build
+3. Run with the command:
+
+   ```bash
+   go test ./lexer
