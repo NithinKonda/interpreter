@@ -1,8 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"os/user"
+	"writing/repl"
+)
 
 func main() {
-	fmt.Println("Interpreter using Go")
-	fmt.Println("run with command go test ./lexer")
+	user, err := user.Current()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("Hello %s! This is the Monkey programming language!\n",
+		user.Username)
+	fmt.Printf("Feel free to type in commands\n")
+	repl.Start(os.Stdin, os.Stdout)
 }
