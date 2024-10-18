@@ -33,4 +33,4 @@ This project is a simple interpreter for a programming language called **Monkey*
 3. Run with the command:
 
    ```bash
-   go test ./lexer
+   go run main.go
