@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	fmt.Println("BRANCH CHECK")
 	user, err := user.Current()
 	if err != nil {
 		panic(err)
