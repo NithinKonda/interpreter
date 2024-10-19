@@ -26,6 +26,14 @@ type ReturnStatement struct {
 func (rs *ReturnStatement) statementNode()       {}
 func (rs *ReturnStatement) TokenLiteral() string { return rs.Token.Literal }
 
+type ExpressionStatement struct {
+	Token      token.Token
+	Expression Expression
+}
+
+func (es *ExpressionStatement) statementNode()       {}
+func (es *ExpressionStatement) TokenLiteral() string { return es.Token.Literal }
+
 func (p *Program) TokenLiteral() string {
 	if len(p.Statements) > 0 {
 		return p.Statements[0].TokenLiteral()
