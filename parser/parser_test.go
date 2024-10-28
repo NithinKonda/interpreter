@@ -523,7 +523,7 @@ func TestFunctionLiteralParsing(t *testing.T) {
 	testInfixExpression(t, bodyStmt.Expression, "x", "+", "y")
 }
 
-func TestFunctionParameterParsing(t *testing.T) {
+func TestFunctionParameterParsin(t *testing.T) {
 	tests := []struct {
 		input          string
 		expectedParams []string
