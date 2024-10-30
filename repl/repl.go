@@ -30,7 +30,19 @@ func Start(in io.Reader, out io.Writer) {
 		io.WriteString(out, "\n")
 	}
 }
+
+const DOG_FACE = `
+  / \__
+ (    @\__ 
+ /         O
+/   (_____/
+/_____/   U
+`
+
 func printParserErrors(out io.Writer, errors []string) {
+	io.WriteString(out, DOG_FACE)
+	io.WriteString(out, "Oops! Looks like our pup got paws-deep in code!\n")
+	io.WriteString(out, "Fetching errors... Please wait...\n")
 	for _, msg := range errors {
 		io.WriteString(out, "\t"+msg+"\n")
 	}

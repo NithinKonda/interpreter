@@ -20,13 +20,13 @@ func tracePrint(fs string) {
 func incIdent() { traceLevel = traceLevel + 1 }
 func decIdent() { traceLevel = traceLevel - 1 }
 
-func trace(msg string) string {
-	incIdent()
-	tracePrint("BEGIN " + msg)
-	return msg
-}
+// func trace(msg string) string {
+// 	incIdent()
+// 	tracePrint("BEGIN " + msg)
+// 	return msg
+// }
 
-func untrace(msg string) {
-	tracePrint("END " + msg)
-	decIdent()
-}
+// func untrace(msg string) {
+// 	tracePrint("END " + msg)
+// 	decIdent()
+// }
