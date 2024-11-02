@@ -20,6 +20,11 @@ const (
 	NULL_OBJ    = "NULL"
 )
 
+type Null struct{}
+
+func (n *Null) Type() ObjectType { return NULL_OBJ }
+func (n *Null) Inspect() string  { return "null" }
+
 func (i *Integer) Type() ObjectType { return INTEGER_OBJ }
 
 type Boolean struct {
