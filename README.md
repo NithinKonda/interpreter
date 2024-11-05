@@ -34,3 +34,11 @@ This project is a simple interpreter for a programming language called **Monkey*
 
    ```bash
    go run main.go
+   ```
+4. Add test cases in parser_test.go and evalutaion_test.go :
+
+
+   ```bash
+   go test ./evaluator
+   go test ./parser
+   ```
