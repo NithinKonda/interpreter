@@ -234,3 +234,9 @@ func (ce *CallExpression) String() string {
 	out.WriteString(")")
 	return out.String()
 }
+
+type FunctionLiteral struct {
+	Token      token.Token // The 'fn' token
+	Parameters []*Identifier
+	Body       *BlockStatement
+}
