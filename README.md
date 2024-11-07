@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a simple interpreter for a programming language called **Monkey**, built using Go. The interpreter includes essential components such as a lexer, tokenizer, parser, and a REPL (Read-Eval-Print Loop) for interactive use.
+This project is a simple interpreter for a programming language called **writing**, built using Go. The interpreter includes essential components such as a lexer, tokenizer, parser, and a REPL (Read-Eval-Print Loop) for interactive use.
 
 ## Features
 

@@ -6,14 +6,19 @@ import (
 	"writing/token"
 )
 
+// The base Node interface
 type Node interface {
 	TokenLiteral() string
 	String() string
 }
+
+// All statement nodes implement this
 type Statement interface {
 	Node
 	statementNode()
 }
+
+// All expression nodes implement this
 type Expression interface {
 	Node
 	expressionNode()
@@ -41,8 +46,9 @@ func (p *Program) String() string {
 	return out.String()
 }
 
+// Statements
 type LetStatement struct {
-	Token token.Token
+	Token token.Token // the token.LET token
 	Name  *Identifier
 	Value Expression
 }
@@ -55,15 +61,18 @@ func (ls *LetStatement) String() string {
 	out.WriteString(ls.TokenLiteral() + " ")
 	out.WriteString(ls.Name.String())
 	out.WriteString(" = ")
+
 	if ls.Value != nil {
 		out.WriteString(ls.Value.String())
 	}
+
 	out.WriteString(";")
+
 	return out.String()
 }
 
 type ReturnStatement struct {
-	Token       token.Token
+	Token       token.Token // the 'return' token
 	ReturnValue Expression
 }
 
@@ -84,7 +93,7 @@ func (rs *ReturnStatement) String() string {
 }
 
 type ExpressionStatement struct {
-	Token      token.Token
+	Token      token.Token // the first token of the expression
 	Expression Expression
 }
 
@@ -98,7 +107,7 @@ func (es *ExpressionStatement) String() string {
 }
 
 type BlockStatement struct {
-	Token      token.Token
+	Token      token.Token // the { token
 	Statements []Statement
 }
 
@@ -114,8 +123,9 @@ func (bs *BlockStatement) String() string {
 	return out.String()
 }
 
+// Expressions
 type Identifier struct {
-	Token token.Token
+	Token token.Token // the token.IDENT token
 	Value string
 }
 
@@ -142,7 +152,7 @@ func (il *IntegerLiteral) TokenLiteral() string { return il.Token.Literal }
 func (il *IntegerLiteral) String() string       { return il.Token.Literal }
 
 type PrefixExpression struct {
-	Token    token.Token
+	Token    token.Token // The prefix token, e.g. !
 	Operator string
 	Right    Expression
 }
@@ -161,7 +171,7 @@ func (pe *PrefixExpression) String() string {
 }
 
 type InfixExpression struct {
-	Token    token.Token
+	Token    token.Token // The operator token, e.g. +
 	Left     Expression
 	Operator string
 	Right    Expression
@@ -182,7 +192,7 @@ func (oe *InfixExpression) String() string {
 }
 
 type IfExpression struct {
-	Token       token.Token
+	Token       token.Token // The 'if' token
 	Condition   Expression
 	Consequence *BlockStatement
 	Alternative *BlockStatement
@@ -207,7 +217,7 @@ func (ie *IfExpression) String() string {
 }
 
 type FunctionLiteral struct {
-	Token      token.Token
+	Token      token.Token // The 'fn' token
 	Parameters []*Identifier
 	Body       *BlockStatement
 }
@@ -232,8 +242,8 @@ func (fl *FunctionLiteral) String() string {
 }
 
 type CallExpression struct {
-	Token     token.Token
-	Function  Expression
+	Token     token.Token // The '(' token
+	Function  Expression  // Identifier or FunctionLiteral
 	Arguments []Expression
 }
 
