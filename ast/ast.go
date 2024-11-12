@@ -267,7 +267,7 @@ func (ce *CallExpression) String() string {
 
 type StringLiteral struct {
 	Token token.Token
-	Value String
+	Value string
 }
 
 func (sl *StringLiteral) expressionNode()      {}
